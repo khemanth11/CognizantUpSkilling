@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Local Community Event Portal</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <nav>
+        <h1>Portal</h1>
+        <div class="nav-links">
+            <a href="#home">Home</a>
+            <a href="#events">Events</a>
+            <a href="#registration">Register</a>
+            <a href="#videoInvite">Promo</a>
+            <a href="#locationSection">Location</a>
+            <a href="#contact">Contact</a>
+            <a href="help.html" target="_blank" class="help-btn">Help</a>
+        </div>
+    </nav>
+
+    <main>
+        <section id="home">
+            <h2>Welcome to your Community</h2>
+            <p>Your one-stop gateway to local celebrations, developmental meets, and civic programs.</p>
+            
+            <div id="welcomeBanner">
+                <h2>Welcome Back, Resident!</h2>
+                <p class="highlight">Get priority tickets for upcoming community programs today.</p>
+                <p>Special Offer: <span style="color: red; font-weight: bold;">Free entry for the first 50 registrations!</span></p>
+            </div>
+        </section>
+
+        <section id="events">
+            <h2>Upcoming Events Gallery</h2>
+            <p class="highlight">Hover over each event card to inspect the details and schedules.</p>
+            <table>
+                <tr>
+                    <td>
+                        <img src="https://images.unsplash.com/photo-1514525253161-7a46d19cd819?w=400&q=80" alt="Music Festival" title="Music Festival Showcase" class="eventImage">
+                        <p>Music Festival Showcase</p>
+                    </td>
+                    <td>
+                        <img src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=400&q=80" alt="Food Carnival" title="Culinary Food Carnival" class="eventImage">
+                        <p>Culinary Food Carnival</p>
+                    </td>
+                    <td>
+                        <img src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=400&q=80" alt="Tech Meetup" title="Innovate Tech Meetup" class="eventImage">
+                        <p>Innovate Tech Meetup</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <img src="https://images.unsplash.com/photo-1460661419201-fd4cecdf8a8b?w=400&q=80" alt="Community Art Show" title="Exquisite Fine Arts Exhibition" class="eventImage">
+                        <p>Fine Arts Exhibition</p>
+                    </td>
+                    <td>
+                        <img src="https://images.unsplash.com/photo-1502680390469-be75c86b636f?w=400&q=80" alt="Youth Sports Derby" title="Annual Sports Tournament" class="eventImage">
+                        <p>Annual Sports Tournament</p>
+                    </td>
+                    <td>
+                        <img src="https://images.unsplash.com/photo-1511632765486-a01980e01a18?w=400&q=80" alt="Local Town Hall Meetup" title="Town Hall Interactive Forum" class="eventImage">
+                        <p>Town Hall Civic Forum</p>
+                    </td>
+                </tr>
+            </table>
+        </section>
+
+        <section class="dblclick-wrapper">
+            <h2>Interactive Event Spotlight</h2>
+            <p>Double-click the image below to toggle event details enlargement</p>
+            <img src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=600&q=80" id="zoomImage" ondblclick="enlargeImage()" alt="Spotlight Event Highlight" title="Spotlight Event">
+        </section>
+
+        <section id="registration">
+            <h2>Event Registration & Feedback</h2>
+            <form id="eventForm">
+                <div class="form-group">
+                    <label for="name">Full Name</label>
+                    <input type="text" id="name" name="name" placeholder="Enter your full name" required autofocus>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" name="name" placeholder="resident@citycouncil.gov" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="phone">Phone Number</label>
+                    <input type="text" id="phone" placeholder="e.g. 9876543210" onblur="validatePhone()">
+                </div>
+
+                <div class="form-group">
+                    <label for="date">Event Date</label>
+                    <input type="date" id="date" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="eventType">Select Event Program</label>
+                    <select id="eventType" required onchange="showFee()">
+                        <option value="">-- Choose an Event Program --</option>
+                        <option value="100">Music Festival Showcase - ₹100</option>
+                        <option value="200">Culinary Food Carnival - ₹200</option>
+                        <option value="300">Innovate Tech Meetup - ₹300</option>
+                    </select>
+                </div>
+
+                <div id="eventFee" class="fee-container" style="display: none;"></div>
+
+                <div class="pref-btn-group">
+                    <button type="button" onclick="savePreference()">Save Favorite</button>
+                    <button type="button" onclick="clearPreferences()">Reset Favorites</button>
+                </div>
+
+                <div class="form-group">
+                    <label for="message">Feedback or Special Inquiries</label>
+                    <textarea id="message" rows="5" placeholder="Share your suggestions or specify accessibility requirements..." onkeyup="countCharacters()"></textarea>
+                    <div id="charCount">Characters: 0</div>
+                </div>
+
+                <button type="submit" onclick="showConfirmation()">Confirm Registration</button>
+
+                <output id="confirmationMessage"></output>
+            </form>
+        </section>
+
+        <section id="videoInvite">
+            <h2>Community Event Promo</h2>
+            <div class="video-container">
+                <video id="promoVideo" controls oncanplay="videoReady()">
+                    <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+                    Your browser does not support HTML5 video player.
+                </video>
+            </div>
+            <p id="videoMessage"></p>
+        </section>
+
+        <section id="locationSection">
+            <h2>Locate Nearest Event Hub</h2>
+            <p>Allow location access to retrieve geographical coordinates of local services and nearest event centers.</p>
+            <button onclick="findLocation()">Find Nearby Events</button>
+            <div id="locationResult"></div>
+        </section>
+
+        <section id="contact">
+            <h2>Contact Local Council</h2>
+            <p>For more queries regarding tickets, sponsorships, and civic assistance, contact us:</p>
+            <p style="margin-top: 1rem; font-weight: 700; color: var(--accent-cyan);">Email: support@communityportal.gov</p>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2026 Local City Council Event Portal. Built with high-fidelity HTML5 & Vanilla CSS.</p>
+    </footer>
+
+    <div class="toast-container" id="toastContainer"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>
