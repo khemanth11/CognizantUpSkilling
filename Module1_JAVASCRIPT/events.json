@@ -1,0 +1,56 @@
+[
+  {
+    "id": 1,
+    "name": "Music Festival Showcase",
+    "date": "2026-06-15",
+    "category": "Music",
+    "seats": 120,
+    "venue": "Central Park Arena",
+    "image": "https://images.unsplash.com/photo-1514525253161-7a46d19cd819?w=400&q=80"
+  },
+  {
+    "id": 2,
+    "name": "Culinary Food Carnival",
+    "date": "2026-06-22",
+    "category": "Food",
+    "seats": 85,
+    "venue": "City Square Hall",
+    "image": "https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=400&q=80"
+  },
+  {
+    "id": 3,
+    "name": "Innovate Tech Meetup",
+    "date": "2026-06-29",
+    "category": "Tech",
+    "seats": 40,
+    "venue": "Tech Hub Center",
+    "image": "https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=400&q=80"
+  },
+  {
+    "id": 4,
+    "name": "Fine Arts Exhibition",
+    "date": "2026-07-05",
+    "category": "Arts",
+    "seats": 60,
+    "venue": "Community Gallery",
+    "image": "https://images.unsplash.com/photo-1460661419201-fd4cecdf8a8b?w=400&q=80"
+  },
+  {
+    "id": 5,
+    "name": "Annual Sports Tournament",
+    "date": "2026-07-12",
+    "category": "Sports",
+    "seats": 150,
+    "venue": "Civic Stadium",
+    "image": "https://images.unsplash.com/photo-1502680390469-be75c86b636f?w=400&q=80"
+  },
+  {
+    "id": 6,
+    "name": "Town Hall Civic Forum",
+    "date": "2026-07-18",
+    "category": "Civic",
+    "seats": 0,
+    "venue": "Community Center",
+    "image": "https://images.unsplash.com/photo-1511632765486-a01980e01a18?w=400&q=80"
+  }
+]

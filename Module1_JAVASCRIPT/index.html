@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Local Community Event Portal</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <style>
+        body {
+            background-color: #0f172a;
+            background-image: radial-gradient(circle at 50% 0%, #1e1b4b 0%, #0f172a 50%, #020617 100%);
+            background-attachment: fixed;
+        }
+        
+        .filter-controls {
+            display: flex;
+            gap: 1.5rem;
+            width: 100%;
+            max-width: 900px;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        
+        .search-box {
+            flex: 2;
+            min-width: 250px;
+        }
+        
+        .filter-select {
+            flex: 1;
+            min-width: 200px;
+        }
+        
+        .spinner-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 3rem;
+            width: 100%;
+            gap: 1rem;
+            background: var(--bg-surface);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+        }
+        
+        .spinner {
+            width: 50px;
+            height: 50px;
+            border: 4px solid rgba(59, 130, 246, 0.1);
+            border-top: 4px solid var(--primary);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        #developerCorner {
+            background: linear-gradient(135deg, rgba(30, 41, 59, 0.8) 0%, rgba(15, 23, 42, 0.9) 100%);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(20px);
+            border-radius: 24px;
+            padding: 3rem;
+            box-shadow: var(--shadow-main);
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+            scroll-margin-top: 120px;
+        }
+        
+        .developer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 1.5rem;
+        }
+        
+        .dev-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+        
+        .dev-card h3 {
+            font-family: 'Outfit', sans-serif;
+            color: var(--accent-cyan);
+            font-size: 1.25rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            padding-bottom: 0.5rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .tally-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 0.75rem;
+        }
+        
+        .tally-item {
+            background: rgba(15, 23, 42, 0.6);
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            padding: 0.75rem;
+            text-align: center;
+            font-weight: 500;
+        }
+        
+        .tally-item span.count {
+            display: block;
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--accent-green);
+            font-family: 'Outfit', sans-serif;
+            margin-top: 0.25rem;
+        }
+        
+        .inspector-placeholder {
+            color: var(--text-muted);
+            font-style: italic;
+            text-align: center;
+            padding: 2rem 0;
+        }
+        
+        .inspector-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.85rem;
+            margin-top: 0.5rem;
+        }
+        
+        .inspector-table th, .inspector-table td {
+            padding: 0.5rem;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            text-align: left;
+        }
+        
+        .inspector-table th {
+            background: rgba(59, 130, 246, 0.1);
+            color: var(--accent-cyan);
+            font-weight: 600;
+        }
+        
+        .framework-box {
+            background: rgba(6, 182, 212, 0.05);
+            border-left: 4px solid var(--accent-cyan);
+            padding: 1rem;
+            border-radius: 0 12px 12px 0;
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+        
+        .framework-box ul {
+            margin-top: 0.5rem;
+            padding-left: 1.2rem;
+        }
+        
+        .framework-box li {
+            margin-bottom: 0.25rem;
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <h1>Portal</h1>
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#events">Events</a></li>
+            <li><a href="#registration">Register</a></li>
+            <li><a href="#videoInvite">Promo</a></li>
+            <li><a href="#locationSection">Location</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <li><a href="help.html" target="_blank" class="help-btn">Help</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <section id="home">
+            <h2 style="color: red;">Welcome to your Community</h2>
+            <p>Your one-stop gateway to local celebrations, developmental meets, and civic programs.</p>
+            
+            <div id="mainHeader">
+                <h2>Welcome Back, Resident!</h2>
+                <p class="highlight">Get priority tickets for upcoming community programs today.</p>
+                <p>Special Offer: <span style="color: red; font-weight: bold;">Free entry for the first 50 registrations!</span></p>
+            </div>
+        </section>
+
+        <section id="events">
+            <h2>Upcoming Events Gallery</h2>
+            <p class="highlight">Hover over each event card to inspect the details and schedules.</p>
+            
+            <div class="filter-controls">
+                <input type="text" id="eventSearchInput" placeholder="Quick search events by name... (KeyDown active)" class="search-box">
+                <select id="eventCategorySelect" class="filter-select">
+                    <option value="all">All Categories</option>
+                    <option value="Music">Music</option>
+                    <option value="Food">Food</option>
+                    <option value="Tech">Tech</option>
+                    <option value="Arts">Arts</option>
+                    <option value="Sports">Sports</option>
+                    <option value="Civic">Civic</option>
+                </select>
+            </div>
+
+            <div id="eventLoadingSpinner" class="spinner-container">
+                <div class="spinner"></div>
+                <p style="color: var(--text-muted);">Fetching dynamic event portal database...</p>
+            </div>
+
+            <div class="events-grid" id="dynamicEventsGrid">
+                
+            </div>
+
+            <div class="schedule-container">
+                <h3>Event Schedules & Capacity</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Event Name</th>
+                            <th>Date</th>
+                            <th>Available Seats</th>
+                            <th>Venue</th>
+                        </tr>
+                    </thead>
+                    <tbody id="eventScheduleBody">
+                        
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section class="dblclick-wrapper">
+            <h2>Interactive Event Spotlight</h2>
+            <p>Double-click the image below to toggle event details enlargement</p>
+            <img src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=600&q=80" id="zoomImage" ondblclick="enlargeImage()" alt="Spotlight Event Highlight" title="Spotlight Event">
+        </section>
+
+        <section id="registration">
+            <h2>Event Registration & Feedback</h2>
+            <form id="eventForm">
+                <div class="form-group">
+                    <label for="name">Full Name</label>
+                    <input type="text" id="name" name="name" placeholder="Enter your full name" required autofocus>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" name="name" placeholder="resident@citycouncil.gov" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="phone">Phone Number</label>
+                    <input type="text" id="phone" placeholder="e.g. 9876543210" onblur="validatePhone()">
+                </div>
+
+                <div class="form-group">
+                    <label for="date">Event Date</label>
+                    <input type="date" id="date" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="eventType">Select Event Program</label>
+                    <select id="eventType" required onchange="showFee()">
+                        <option value="">-- Choose an Event Program --</option>
+                        <option value="100">Music Festival Showcase - ₹100</option>
+                        <option value="200">Culinary Food Carnival - ₹200</option>
+                        <option value="300">Innovate Tech Meetup - ₹300</option>
+                    </select>
+                </div>
+
+                <div id="eventFee" class="fee-container" style="display: none;"></div>
+
+                <div class="pref-btn-group">
+                    <button type="button" onclick="savePreference()">Save Favorite</button>
+                    <button type="button" onclick="clearPreferences()">Reset Favorites</button>
+                </div>
+
+                <div class="form-group">
+                    <label for="message">Feedback or Special Inquiries</label>
+                    <textarea id="message" rows="5" placeholder="Share your suggestions or specify accessibility requirements..." onkeyup="countCharacters()"></textarea>
+                    <div id="charCount">Characters: 0</div>
+                </div>
+
+                <button type="submit" id="registerBtn">Confirm Registration</button>
+
+                <output id="confirmationMessage"></output>
+            </form>
+        </section>
+
+        <section id="videoInvite">
+            <h2>Community Event Promo</h2>
+            <div class="video-container">
+                <video id="promoVideo" controls oncanplay="videoReady()">
+                    <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+                    Your browser does not support HTML5 video player.
+                </video>
+            </div>
+            <p id="videoMessage"></p>
+        </section>
+
+        <section id="locationSection">
+            <h2>Locate Nearest Event Hub</h2>
+            <p>Allow location access to retrieve geographical coordinates of local services and nearest event centers.</p>
+            <button onclick="findLocation()">Find Nearby Events</button>
+            <div id="locationResult"></div>
+        </section>
+
+        <section id="developerCorner">
+            <h2>Developer Corner & Exercise Inspector</h2>
+            <p>Interactive playground inspecting live event properties, closure metrics, and framework comparison notes.</p>
+            
+            <div class="developer-grid">
+                <div class="dev-card">
+                    <h3>Closure Category Tally</h3>
+                    <p style="font-size: 0.85rem;">Tracks actual registration clicks per category in real-time, managed safely through a closure-scoped environment.</p>
+                    <div class="tally-grid">
+                        <div class="tally-item">Music <span class="count" id="tally-Music">0</span></div>
+                        <div class="tally-item">Food <span class="count" id="tally-Food">0</span></div>
+                        <div class="tally-item">Tech <span class="count" id="tally-Tech">0</span></div>
+                        <div class="tally-item">Arts <span class="count" id="tally-Arts">0</span></div>
+                        <div class="tally-item">Sports <span class="count" id="tally-Sports">0</span></div>
+                        <div class="tally-item">Civic <span class="count" id="tally-Civic">0</span></div>
+                    </div>
+                </div>
+
+                <div class="dev-card">
+                    <h3>Object.entries() Inspector</h3>
+                    <p style="font-size: 0.85rem;">Click on any event card in the gallery above to see its full JavaScript Object properties enumerated here.</p>
+                    <div id="inspectorContent">
+                        <div class="inspector-placeholder">No event selected. Click any card to inspect.</div>
+                    </div>
+                </div>
+
+                <div class="dev-card">
+                    <h3>Vanilla/jQuery vs. Frameworks</h3>
+                    <div class="framework-box">
+                        <strong>Why move from jQuery to React/Vue?</strong>
+                        <ul>
+                            <li><strong>Declarative UI:</strong> Frameworks sync UI state automatically, avoiding tedious imperative DOM edits.</li>
+                            <li><strong>Componentization:</strong> Reusable chunks make large codebases maintainable.</li>
+                            <li><strong>Virtual DOM:</strong> Highly optimized updates prevent expensive full-reflow browser tasks.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="bulletin">
+            <h2>Community News Bulletin</h2>
+            <div class="bulletin-content">
+                <h3>Summer Programs Launched</h3>
+                <p>The city council has officially approved funding for our new summer recreation programs. This includes free arts classes, outdoor swimming safety workshops, and local environment cleanups. Make sure to check the event calendar regularly as new dates are added weekly. Volunteers are always welcome!</p>
+                <h3>Renovation of Civic Hall</h3>
+                <p>Starting next month, the main hall of the civic center will undergo full renovations. Modern energy-efficient lighting, enhanced acoustics, and improved accessibility features will be installed. All town halls will be moved to the community center gallery temporarily during this period.</p>
+            </div>
+        </section>
+
+        <section id="contact">
+            <h2>Contact Local Council</h2>
+            <p>For more queries regarding tickets, sponsorships, and civic assistance, contact us:</p>
+            <p style="margin-top: 1rem; font-weight: 700; color: var(--accent-cyan);">Email: support@communityportal.gov</p>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2026 Local City Council Event Portal. Built with high-fidelity HTML5 & Vanilla CSS.</p>
+    </footer>
+
+    <div class="toast-container" id="toastContainer"></div>
+
+    <script src="main.js"></script>
+</body>
+</html>
