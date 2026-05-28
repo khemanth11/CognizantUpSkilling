@@ -1,0 +1,791 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Bootstrap 5 Exercises</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css"
+        rel="stylesheet">
+
+    <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+</head>
+
+<body class="bg-light">
+
+    <div class="container py-5">
+
+        <h1 class="display-3 text-center fw-bold mb-5">
+            Bootstrap 5 Exercises
+        </h1>
+
+        <h2 class="mb-4">
+            Responsive Grid Layout
+        </h2>
+
+        <div class="row g-4 mb-5">
+
+            <div class="col-12 col-md-6 col-lg-4">
+                <div class="bg-primary text-white p-5 rounded">
+                    Column 1
+                </div>
+            </div>
+
+            <div class="col-12 col-md-6 col-lg-4">
+                <div class="bg-danger text-white p-5 rounded">
+                    Column 2
+                </div>
+            </div>
+
+            <div class="col-12 col-md-6 col-lg-4">
+                <div class="bg-success text-white p-5 rounded">
+                    Column 3
+                </div>
+            </div>
+
+        </div>
+
+        <h2 class="mb-4">
+            Sidebar Layout
+        </h2>
+
+        <div class="row mb-5">
+
+            <div class="col-md-3 bg-dark text-white p-4">
+
+                <h3>
+                    Sidebar
+                </h3>
+
+                <ul class="list-group">
+
+                    <li class="list-group-item">
+                        Home
+                    </li>
+
+                    <li class="list-group-item">
+                        Dashboard
+                    </li>
+
+                    <li class="list-group-item">
+                        Settings
+                    </li>
+
+                </ul>
+
+            </div>
+
+            <div class="col-md-9 bg-white p-5 shadow">
+
+                <h3>
+                    Main Content
+                </h3>
+
+                <p>
+                    Bootstrap sidebar and content layout.
+                </p>
+
+            </div>
+
+        </div>
+
+        <h2 class="mb-4">
+            Four Column Layout
+        </h2>
+
+        <div class="row text-center mb-5">
+
+            <div class="col-sm-3 p-4 bg-primary text-white">
+                1
+            </div>
+
+            <div class="col-sm-3 p-4 bg-danger text-white">
+                2
+            </div>
+
+            <div class="col-sm-3 p-4 bg-success text-white">
+                3
+            </div>
+
+            <div class="col-sm-3 p-4 bg-warning text-dark">
+                4
+            </div>
+
+        </div>
+
+        <h2 class="mb-4">
+            Alignment and Reordering
+        </h2>
+
+        <div class="row align-items-center justify-content-center mb-5">
+
+            <div class="col-md-4 order-md-2 bg-primary text-white p-5">
+                Second On Desktop
+            </div>
+
+            <div class="col-md-4 order-md-1 bg-danger text-white p-5">
+                First On Desktop
+            </div>
+
+        </div>
+
+        <h2 class="mb-4">
+            Flexbox Navbar
+        </h2>
+
+        <div class="d-flex flex-column flex-md-row justify-content-between align-items-center bg-dark text-white p-4 mb-5">
+
+            <h3>
+                Logo
+            </h3>
+
+            <div class="d-flex gap-4">
+
+                <span>
+                    Home
+                </span>
+
+                <span>
+                    About
+                </span>
+
+                <span>
+                    Contact
+                </span>
+
+            </div>
+
+        </div>
+
+        <h2 class="mb-4">
+            Typography
+        </h2>
+
+        <div class="bg-white p-5 shadow mb-5">
+
+            <h1 class="display-1">
+                Display Heading
+            </h1>
+
+            <p class="lead">
+                This is a lead paragraph.
+            </p>
+
+            <p class="text-muted">
+                Muted text example.
+            </p>
+
+            <p class="fw-bold">
+                Bold text example.
+            </p>
+
+            <p class="text-uppercase">
+                uppercase text
+            </p>
+
+            <p class="text-lowercase">
+                LOWERCASE TEXT
+            </p>
+
+            <p class="text-capitalize">
+                capitalize each word
+            </p>
+
+        </div>
+
+        <h2 class="mb-4">
+            Registration Form
+        </h2>
+
+        <form class="bg-white p-5 shadow mb-5">
+
+            <div class="mb-3">
+
+                <label class="form-label">
+                    Full Name
+                </label>
+
+                <input type="text" class="form-control">
+
+            </div>
+
+            <div class="mb-3">
+
+                <label class="form-label">
+                    Email
+                </label>
+
+                <input type="email" class="form-control">
+
+            </div>
+
+            <div class="input-group mb-3">
+
+                <span class="input-group-text">
+                    @
+                </span>
+
+                <input type="text" class="form-control" placeholder="Username">
+
+            </div>
+
+            <div class="form-check mb-3">
+
+                <input type="checkbox" class="form-check-input">
+
+                <label class="form-check-label">
+                    Accept Terms
+                </label>
+
+            </div>
+
+            <button class="btn btn-primary">
+                Register
+            </button>
+
+        </form>
+
+        <h2 class="mb-4">
+            Floating Login Form
+        </h2>
+
+        <div class="bg-white p-5 shadow mb-5">
+
+            <div class="form-floating mb-3">
+
+                <input type="email" class="form-control" placeholder="Email">
+
+                <label>
+                    Email address
+                </label>
+
+            </div>
+
+            <div class="form-floating mb-3">
+
+                <input type="password" class="form-control" placeholder="Password">
+
+                <label>
+                    Password
+                </label>
+
+            </div>
+
+            <button class="btn btn-success">
+                Login
+            </button>
+
+        </div>
+
+        <h2 class="mb-4">
+            Buttons
+        </h2>
+
+        <div class="mb-5 d-flex flex-wrap gap-3">
+
+            <button class="btn btn-primary">
+                Primary
+            </button>
+
+            <button class="btn btn-secondary">
+                Secondary
+            </button>
+
+            <button class="btn btn-success">
+                Success
+            </button>
+
+            <button class="btn btn-danger">
+                Danger
+            </button>
+
+            <button class="btn btn-warning">
+                Warning
+            </button>
+
+            <button class="btn btn-info">
+                Info
+            </button>
+
+            <button class="btn btn-outline-primary">
+                Outline
+            </button>
+
+        </div>
+
+        <h2 class="mb-4">
+            Button Group
+        </h2>
+
+        <div class="btn-group mb-5">
+
+            <button class="btn btn-primary">
+                Left
+            </button>
+
+            <button class="btn btn-primary">
+                Middle
+            </button>
+
+            <button class="btn btn-primary">
+                Right
+            </button>
+
+        </div>
+
+        <h2 class="mb-4">
+            Responsive Navbar
+        </h2>
+
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark rounded mb-5">
+
+            <div class="container-fluid">
+
+                <a class="navbar-brand" href="#">
+                    Bootstrap
+                </a>
+
+                <button class="navbar-toggler"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#navMenu">
+
+                    <span class="navbar-toggler-icon"></span>
+
+                </button>
+
+                <div class="collapse navbar-collapse" id="navMenu">
+
+                    <ul class="navbar-nav me-auto">
+
+                        <li class="nav-item">
+                            <a class="nav-link active" href="#">
+                                Home
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">
+                                Services
+                            </a>
+                        </li>
+
+                    </ul>
+
+                    <form class="d-flex">
+
+                        <input class="form-control me-2" type="search" placeholder="Search">
+
+                        <button class="btn btn-success">
+                            Search
+                        </button>
+
+                    </form>
+
+                </div>
+
+            </div>
+
+        </nav>
+
+        <h2 class="mb-4">
+            Tabs and Pills
+        </h2>
+
+        <ul class="nav nav-tabs mb-3">
+
+            <li class="nav-item">
+                <a class="nav-link active" href="#">
+                    Tab 1
+                </a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" href="#">
+                    Tab 2
+                </a>
+            </li>
+
+        </ul>
+
+        <ul class="nav nav-pills mb-5">
+
+            <li class="nav-item">
+                <a class="nav-link active" href="#">
+                    Pill 1
+                </a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" href="#">
+                    Pill 2
+                </a>
+            </li>
+
+        </ul>
+
+        <h2 class="mb-4">
+            Profile Card
+        </h2>
+
+        <div class="card shadow mb-5" style="width: 20rem;">
+
+            <img src="https://picsum.photos/400/200"
+                class="card-img-top">
+
+            <div class="card-body">
+
+                <h5 class="card-title">
+                    John Doe
+                </h5>
+
+                <p class="card-text">
+                    Bootstrap card example.
+                </p>
+
+                <button class="btn btn-primary">
+                    View Profile
+                </button>
+
+            </div>
+
+        </div>
+
+        <h2 class="mb-4">
+            Media Object
+        </h2>
+
+        <div class="d-flex align-items-start bg-white p-4 shadow mb-5">
+
+            <img src="https://picsum.photos/100"
+                class="me-4 rounded-circle">
+
+            <div>
+
+                <h5>
+                    Media Heading
+                </h5>
+
+                <p>
+                    Image aligned left with content.
+                </p>
+
+            </div>
+
+        </div>
+
+        <h2 class="mb-4">
+            Pricing Section
+        </h2>
+
+        <div class="row g-4 mb-5">
+
+            <div class="col-md-4">
+
+                <div class="card p-4 text-center shadow">
+
+                    <h3>
+                        Basic
+                    </h3>
+
+                    <h2>
+                        $10
+                    </h2>
+
+                    <button class="btn btn-primary">
+                        Buy
+                    </button>
+
+                </div>
+
+            </div>
+
+            <div class="col-md-4">
+
+                <div class="card p-4 text-center shadow-lg">
+
+                    <h3>
+                        Pro
+                    </h3>
+
+                    <h2>
+                        $20
+                    </h2>
+
+                    <button class="btn btn-success">
+                        Buy
+                    </button>
+
+                </div>
+
+            </div>
+
+            <div class="col-md-4">
+
+                <div class="card p-4 text-center shadow">
+
+                    <h3>
+                        Premium
+                    </h3>
+
+                    <h2>
+                        $30
+                    </h2>
+
+                    <button class="btn btn-danger">
+                        Buy
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <h2 class="mb-4">
+            Dashboard Colors
+        </h2>
+
+        <div class="row g-4 mb-5">
+
+            <div class="col-md-3">
+                <div class="bg-primary text-white p-5 rounded">
+                    Primary
+                </div>
+            </div>
+
+            <div class="col-md-3">
+                <div class="bg-warning text-dark p-5 rounded">
+                    Warning
+                </div>
+            </div>
+
+            <div class="col-md-3">
+                <div class="bg-success text-white p-5 rounded">
+                    Success
+                </div>
+            </div>
+
+            <div class="col-md-3">
+                <div class="bg-danger text-white p-5 rounded">
+                    Danger
+                </div>
+            </div>
+
+        </div>
+
+        <h2 class="mb-4">
+            Gradient Background
+        </h2>
+
+        <div class="bg-dark bg-gradient text-white p-5 rounded mb-5">
+
+            Gradient Background Example
+
+        </div>
+
+        <h2 class="mb-4">
+            Display Utilities
+        </h2>
+
+        <div class="d-none d-md-block bg-primary text-white p-4 mb-3">
+            Hidden On Mobile
+        </div>
+
+        <div class="d-none d-lg-flex bg-success text-white p-4 mb-5">
+            Visible On Large Screens
+        </div>
+
+        <h2 class="mb-4">
+            Borders and Shadows
+        </h2>
+
+        <div class="card shadow-lg rounded-pill p-5 mb-5">
+
+            <img src="https://picsum.photos/150"
+                class="border border-primary border-3 rounded-circle mb-3">
+
+            <h4>
+                Rounded Image
+            </h4>
+
+        </div>
+
+        <h2 class="mb-4">
+            Position Utilities
+        </h2>
+
+        <div class="position-relative d-inline-block mb-5">
+
+            <img src="https://picsum.photos/300/200"
+                class="rounded">
+
+            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+
+                99+
+
+            </span>
+
+        </div>
+
+        <h2 class="mb-4">
+            Bootstrap Icons
+        </h2>
+
+        <div class="d-flex gap-4 fs-1 mb-5">
+
+            <i class="bi bi-facebook"></i>
+
+            <i class="bi bi-instagram"></i>
+
+            <i class="bi bi-twitter-x"></i>
+
+            <i class="bi bi-youtube"></i>
+
+        </div>
+
+        <h2 class="mb-4">
+            Icon Buttons
+        </h2>
+
+        <div class="d-flex gap-3 mb-5">
+
+            <button class="btn btn-primary">
+                <i class="bi bi-house"></i>
+            </button>
+
+            <button class="btn btn-danger">
+                <i class="bi bi-heart"></i>
+            </button>
+
+            <button class="btn btn-success">
+                <i class="bi bi-check"></i>
+            </button>
+
+        </div>
+
+        <h2 class="mb-4">
+            Modal Popup
+        </h2>
+
+        <button class="btn btn-primary mb-5"
+            data-bs-toggle="modal"
+            data-bs-target="#exampleModal">
+
+            Open Modal
+
+        </button>
+
+        <div class="modal fade" id="exampleModal">
+
+            <div class="modal-dialog">
+
+                <div class="modal-content">
+
+                    <div class="modal-header">
+
+                        <h5 class="modal-title">
+                            Bootstrap Modal
+                        </h5>
+
+                        <button class="btn-close"
+                            data-bs-dismiss="modal">
+                        </button>
+
+                    </div>
+
+                    <div class="modal-body">
+
+                        This is a Bootstrap modal popup.
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <h2 class="mb-4">
+            Accordion
+        </h2>
+
+        <div class="accordion mb-5" id="accordionExample">
+
+            <div class="accordion-item">
+
+                <h2 class="accordion-header">
+
+                    <button class="accordion-button"
+                        data-bs-toggle="collapse"
+                        data-bs-target="#collapseOne">
+
+                        Accordion Item 1
+
+                    </button>
+
+                </h2>
+
+                <div id="collapseOne"
+                    class="accordion-collapse collapse show"
+                    data-bs-parent="#accordionExample">
+
+                    <div class="accordion-body">
+
+                        Accordion content 1.
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="accordion-item">
+
+                <h2 class="accordion-header">
+
+                    <button class="accordion-button collapsed"
+                        data-bs-toggle="collapse"
+                        data-bs-target="#collapseTwo">
+
+                        Accordion Item 2
+
+                    </button>
+
+                </h2>
+
+                <div id="collapseTwo"
+                    class="accordion-collapse collapse"
+                    data-bs-parent="#accordionExample">
+
+                    <div class="accordion-body">
+
+                        Accordion content 2.
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <footer class="bg-dark text-white text-center p-4 position-fixed bottom-0 w-100">
+
+        Bootstrap 5 Exercises
+
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+
+</html>
